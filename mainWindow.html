@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Diablo 3 Toolbox</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="https://us.diablo3.com/static/css/tooltips.css" rel="stylesheet" />
+    <link type="text/css" href="css/stylesheet.css" rel="stylesheet" />
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script> -->
+    <script src="js/jquery.js"></script>
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+    <script src="js/scripts.js"></script>
+</head>
+
+<body class="drag noselect" onLoad="loadNumbers();">
+    <div id="allTabs">
+        <ul>
+            <li class="tab-switcher nodrag" data-tab-index="0" tabindex="0">Legendary Gems</li>
+            <li class="tab-switcher nodrag" data-tab-index="1" tabindex="0">Stat Gems</li>
+        </ul>
+        <form>
+            <!-- Leg Gem Tab-->
+            <div class="tab-data" data-tab-index="0">
+                <section class="pad-top">
+                    <div class="column half tleft" style="height: 355px;">
+                        <div id="diablo-item">
+                            <div class="d3-tooltip d3-tooltip-item">
+                                <div class="tooltip-head tooltip-head-orange">
+                                    <h3 class="d3-color-orange"></h3>
+                                </div>
+                                <div class="tooltip-body">
+                                    <div class="d3-item-properties">
+                                        <!-- No effect, Div for top of Tooltip -->
+                                        <div class="item-description d3-color-white">
+                                            <!-- Upper Right Hand Corner, Gray, Level Cap -->
+                                            <p class="item-type-right d3-color-gray levelcap"></p>
+                                            <!-- Orange Legendary Gem -->
+                                            <p class="d3-color-orange">Legendary Gem</p>
+                                            <!-- Gray, Can be Inserted into X Sockets -->
+                                            <ul class="item-effects">
+                                                <li class="d3-color-gray"><p>Can be inserted into <span class="property-0"></span> with sockets.</p></li>
+                                            </ul>
+                                        </div>
+                                        <div class="item-before-effects">
+                                            <ul class="item-effects">
+                                                <li class="d3-color-orange d3-item-property-utility"><p class="property-1"></p></li>
+                                                <li class="level25 d3-color-gray d3-item-property-utility"><p class="property-2"></p></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="tooltip-extension">
+                                        <div class="flavor"><p class="property-3"></p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column half tright">
+                        <section>
+                            <div class="column half left">
+                                <span" style="-webkit-app-region: no-drag" class="clearform">Reset</span>
+                            </div>
+                            <div class="column half right">
+                                <span style="-webkit-app-region: no-drag" class="exit">Exit</span>
+                            </div>
+                        </section>
+                        <div class="column">
+                            <div class="column tleft">Gem Rank</div>
+                            <div class="gemjump tright collapse">
+                                <span class="minus left">3</span><span class="plus">3</span>
+                                <input style="-webkit-app-region: no-drag" type="number" pattern="[0-9]*" min="0" max="150" value="0" oninput="loadNumbers()" id="gem" />
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="column half tleft">Rift Level</div>
+                            <div class="column half right"><span id="shards"></span></div>
+                            <input style="-webkit-app-region: no-drag" type="number" pattern="[0-9]*" min="1" max="150" value="1" oninput="loadNumbers()" id="riftlevel" />
+                        </div>
+                        <div class="column">
+                            <div class="nicebox tleft">
+                                <div style="-webkit-app-region: no-drag" class="checkbox"><input type="checkbox" id="empowered" value="upgradeFour" /><label for="empowered"></label></div><span class="small">Empowered</span>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="nicebox tleft">
+                                <div style="-webkit-app-region: no-drag" class="checkbox"><input type="checkbox" id="deathless" value="upgradeFive" /><label for="deathless"></label></div><span class="small">Deathless</span>
+                            </div>
+                        </div>
+                        <div class="column pad-bottom">
+                            <div class="nicebox tleft">
+                                <div style="-webkit-app-region: no-drag" class="checkbox"><input type="checkbox" id="upgrade" /><label for="upgrade"></label></div><span class="small">100% Upgrade</span>
+                            </div>
+                        </div>
+                        <div class="chances">
+                            <div class="chance" id="upgradeOne">
+                                <input type="text" id="rank0" value="60" disabled /><span id="plus0">1</span>
+                            </div>
+                            <div class="chance" id="upgradeTwo">
+                                <input type="text" id="rank1" value="60" disabled /><span id="plus1">2</span>
+                            </div>
+                            <div class="chance" id="upgradeThree">
+                                <input type="text" id="rank2" value="30" disabled /><span id="plus2">3</span>
+                            </div>
+                            <div class="chance upgrades" id="upgradeFour">
+                                <input type="text" id="rank3" value="15" disabled /><span id="plus3">4</span>
+                            </div>
+                            <div class="chance upgrades" id="upgradeFive">
+                                <input type="text" id="rank4" value="8" disabled /><span id="plus4">5</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            <div class="breaker"></div>
+
+            <section class="gems nogutter" style="max-width: 100%;">
+                <div class="column eighth"><span class="nodrag"><img data-gem="1" src="img/LegGems/Bane_of_the_Powerful.png" title="Bane of the Powerful" class="clicked patch1 patch6" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="2" src="img/LegGems/Bane_of_the_Stricken.png" title="Bane of the Stricken" class="patch4" /></span></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="3" src="img/LegGems/Bane_of_the_Trapped.png" title="Bane of the Trapped" class="patch1" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="4" src="img/LegGems/Boon_of_the_Hoarder.png" title="Boon of the Hoarder" class="patch1" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="5" src="img/LegGems/Boyarsky's_Chip.png" title="Boyarsky's Chip" class="patch5" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="6" src="img/LegGems/Enforcer.png" title="Enforcer" class="patch1 patch6" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="7" src="img/LegGems/Esoteric_Alteration.png" title="Esoteric Alteration" class="patch2" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="8" src="img/LegGems/Gem_of_Ease.png" title="Gem of Ease" class="patch2" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="9" src="img/LegGems/Gem_of_Efficacious_Toxin.png" title="Gem of Efficacious Toxin" class="patch1 patch6" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="10" src="img/LegGems/Gogok_of_Swiftness.png" title="Gogok of Swiftness" class="patch1 patch6" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="11" src="img/LegGems/Iceblink.png" title="Iceblink" class="patch3" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="12" src="img/LegGems/Invigorating_Gemstone.png" title="Invigorating Gemstone" class="patch1 patch7" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="13" src="img/LegGems/Legacy_of_Dreams.png" title="Legacy of Dreams" class="patch9" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="14" src="img/LegGems/Mirinae,_Teardrop_of_the_Starweaver.png" title="Mirinae, Teardrop of the Starweaver" class="patch1 patch6" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="15" src="img/LegGems/Molten_Wildebeest's_Gizzard.png" title="Molten Wildebeest's Gizzard" class="patch2" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="16" src="img/LegGems/Moratorium.png" title="Moratorium" class="patch1 patch6" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="17" src="img/LegGems/Mutilation_Guard.png" title="Mutilation Guard" class="patch3" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="18" src="img/LegGems/Pain_Enhancer.png" title="Pain Enhancer" class="patch1 patch6" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="19" src="img/LegGems/Red_Soulstone_Shard.png" title="Red Soulstone Shard" class="patch8" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="20" src="img/LegGems/Simplicity's_Strength.png" title="Simplicity's Strength" class="patch1 patch6" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="21" src="img/LegGems/Taeguk.png" title="Taeguk" class="patch1 patch6" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="22" src="img/LegGems/Wreath_of_Lightning.png" title="Wreath of Lightning" class="patch1 patch6" /></span></div>
+                <div class="column eighth"><span class="nodrag"><img data-gem="23" src="img/LegGems/Zei's_Stone_of_Vengeance.png" title="Zei's Stone of Vengeance" class="patch1 patch6" /></span></div>
+            </section>
+            </div>
+            
+            <!-- Stat Gem Tab-->
+            <div class="tab-data" data-tab-index="1" style="display:none;">
+                <section class="pad-top">
+                    <div class="column half tleft" style="height: 355px;">
+                        <div id="diablo-item">
+                            <div class="d3-tooltip-statgem d3-tooltip-statgem">
+                                <div class="tooltip-head-statgem tooltip-head-lightblue">
+                                    <h3 class="d3-color-lightblue"></h3>
+                                </div>
+                                <div class="tooltip-body-statgem">
+                                    <div class="d3-item-properties">
+                                        <div class="item-description-statgem d3-color-white">
+                                            <p class="d3-color-lightblue">Gem</p>
+                                            <ul class="item-effects-statgem">
+                                                <li class="d3-color-gray"><p>Can be inserted into equipment with sockets.</p></li>
+                                            </ul>
+                                        </div>
+                                        <div class="item-before-effects">
+                                            <ul class="item-effects-statgem">
+                                                <li class="d3-color-gray d3-item-property-primary"><p class="property-4"></p></li>
+                                                <li class="d3-color-gray d3-item-property-primary"><p class="property-5"></p></li>
+                                                <li class="d3-color-gray d3-item-property-primary"><p class="property-6"></p></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="breaker"></div>
+
+                <section class="statgems nogutter" style="max-width: 100%;">
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="24" src="img/StatGems/Amethyst/Amethyst.png" title="Amethyst" class="clicked" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="25" src="img/StatGems/Amethyst/Flawless_Amethyst.png" title="Flawless Amethyst" class="" /></span></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="3" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="4" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="5" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="6" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="7" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="8" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="9" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="10" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="11" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="12" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="13" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="14" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="15" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="16" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="17" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="18" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="19" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="20" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="21" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="22" src="" title="" class="" /></span></div>
+                    <div class="column eighth"><span class="nodrag"><img data-statgem="23" src="" title="" class="" /></span></div>
+                </section>
+            </div>
+        </form>
+    </div>
+
+    <div class="breaker"></div>
+    
+    <section>
+        <div class="filters column drag">
+            <span style="-webkit-app-region: no-drag" data-patch="1">2.1</span>
+            <span style="-webkit-app-region: no-drag" data-patch="2">2.1.2</span>
+            <span style="-webkit-app-region: no-drag" data-patch="3">2.2</span>
+            <span style="-webkit-app-region: no-drag" data-patch="4">2.3</span>
+            <span style="-webkit-app-region: no-drag" data-patch="5">2.4</span>
+            <span style="-webkit-app-region: no-drag" data-patch="6">2.4.1</span>
+            <span style="-webkit-app-region: no-drag" data-patch="7">2.4.2</span>
+            <span style="-webkit-app-region: no-drag" data-patch="8">2.4.3</span>
+            <span style="-webkit-app-region: no-drag" data-patch="9">2.6.6</span>
+            <span style="-webkit-app-region: no-drag" data-patch="live" class="clicked">Live</span>
+        </div>
+    </section>
+
+</body>
+
+</html>
